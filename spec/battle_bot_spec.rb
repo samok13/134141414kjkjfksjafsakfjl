@@ -69,12 +69,12 @@ describe BattleBot do
   # ------------------------------------
 
 
-  describe '#name' do
+   describe '#name' do
 
-    it "raises NoMethodError when trying to assign a new value" do
-      expect { bot.name = "Droid" }.to raise_error(NoMethodError)
-    end
-  end
+     it "raises NoMethodError when trying to assign a new value" do
+       expect { bot.name = "Droid" }.to raise_error(NoMethodError)
+     end
+   end
 
 
   # ------------------------------------
@@ -329,7 +329,6 @@ describe BattleBot do
     end
 
 
-
     context 'the bot can attack' do
 
       it 'calls enemy#receive_attack_from passing the bot who attacked' do
@@ -355,7 +354,7 @@ describe BattleBot do
     it 'accepts an enemy bot as a parameter' do
       expect { bot.receive_attack_from(enemy) }.to_not raise_error
     end
-
+  
 
     it 'raises an ArgumentError if the enemy is not a BattleBot' do
       expect { bot.receive_attack_from("Puppy") }.to raise_error(ArgumentError)
@@ -389,7 +388,6 @@ describe BattleBot do
       5.times { bot.receive_attack_from(enemy) }
       expect(bot.enemies.length).to eq(1)
     end
-
 
     it 'calls #defend_against on the bot receiving the attack passing the enemy as a parameter' do
       expect(bot).to receive(:defend_against).with(enemy)

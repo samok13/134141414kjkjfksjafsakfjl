@@ -11,23 +11,20 @@ class Weapon
     if !(damage.is_a? Fixnum)
       raise ArgumentError
     end
-  @name = name
-  @damage = damage
+    @name = name
+    @damage = damage
   end
 
   def bot=(battlebot)
-    if (battlebot.is_a? BattleBot || battlebot.is_nil?)
+    if (battlebot.is_a? BattleBot) || battlebot == nil
       @bot = battlebot
     else
-      puts battlebot
       raise ArgumentError
     end
   end
 
-
-
   def picked_up?
-
+    @bot ? true : false
   end
 
 
